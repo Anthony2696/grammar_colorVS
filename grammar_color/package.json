@@ -1,0 +1,45 @@
+{
+    "name": "grammar-color",
+    "displayName": "Grammar_Color",
+    "description": "coloreado de tokens para lenguaje ULA",
+    "version": "0.0.1",
+    "icon": "./images/ula.png",
+    "author": "ANTHONY B.,EDUARDO G.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Anthony2696/grammar_colorVS"
+    },
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "themes":[
+            {
+                "label": "color-new",
+                "id": "c-new",
+                "uiTheme": "vs-dark",
+                "path": "./themes/c-new-color-theme.json"
+            }
+        ],
+        "languages": [{
+            "id": "ULA",
+            "aliases": ["Lenguage ULA", "ULA"],
+            "extensions": [".ula"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ULA",
+            "scopeName": "source.ula",
+            "path": "./syntaxes/ULA.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "ULA",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
