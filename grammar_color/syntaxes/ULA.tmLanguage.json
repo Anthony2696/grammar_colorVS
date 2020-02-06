@@ -11,9 +11,15 @@
 			{ "include": "#look_read" },
 			{ "include": "#identificador" },
 			{ "include": "#Digit" },
+			{ "include": "#comentario"},
 			{ "include": "#paren-expression"}
 		]
 	  },
+	  "comentario": {
+		  "match": "[\\#]([[:punct:]]*[[:alnum:]]*[[:space:]]*)*.",
+		  "name": "invalid"
+	  },
+
 	  "constants": {
 		"match": "falso|verdadero|nulo|infinito|FALSO|VERDADERO|NULO|INFINITO",
 		"name": "keyword.letter"
@@ -23,7 +29,7 @@
 		"name": "color"
 	  },
 	  "keywords": {
-		"match": "para|mientras|segun_sea|salir|sino|si|caso|defecto|defer|operator|extern|def|const|super|self|retorna|intenta|atrapa|tirar|finalmente|yield|fallthrough|continuar|del|from|import|with|pass|void|type|override|abstract|assert",
+		"match": "(para|mientras|segun_sea|salir|sino|si|caso|defecto|defer|operator|extern|def|const|super|self|retorna|intenta|atrapa|tirar|finalmente|yield|fallthrough|continuar|del|from|import|with|pass|void|type|override|abstract|assert)(?![a-zA-Z_])",
 		"name": "key"
 	  },
 	  "identificador" :{
@@ -35,11 +41,11 @@
 		"name" : "constant.numeric"
 	  },
 	  "Operators": {
-		"match": "\\<|\\>|\\+|\\-|\\*|/|=|!=|%|\\^|<<<|>>>|xor|~|<<|>>|y_es|o_es|no|es|en|\\,|\\:|\\.|\\..|\\...|->|as|\\+=|\\-=|\\*=|=|%=|^=|\\++|\\--|==|!|<=|>=|@",
+		"match": "(\\<|\\>|\\+|\\-|\\*|/|=|!=|%|\\^|<<<|>>>|xor|~|<<|>>|y_es|o_es|no|es|en|\\,|\\:|\\.|\\..|\\...|->|as|\\+=|\\-=|\\*=|=|%=|^=|\\++|\\--|==|!|<=|>=|@)(?![a-zA-Z_])",
 		"name" : "comment"
 	},
 	 "types": {
-		"match": "any|entero|entero8|entero16|entero32|entero64|entero128|sn_signo|sin_signo8|sin_signo16|sin_signo32|sin_signo64|sin_signo128|doble|flotante|complejo|cadena|booleano|lista|tupla|conjunto|dict|enum|fun|estructura|clase",
+		"match": "(any|entero|entero8|entero16|entero32|entero64|entero128|sin_signo|sin_signo8|sin_signo16|sin_signo32|sin_signo64|sin_signo128|doble|flotante|complejo|cadena|booleano|lista|tupla|conjunto|dict|enum|fun|estructura|clase)(?![0-9])",
 		"name" : "entity.name.tag"
 	 },
 	  "paren-expression": {
