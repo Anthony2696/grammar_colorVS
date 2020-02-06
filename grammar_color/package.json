@@ -1,5 +1,6 @@
 {
     "name": "grammar-color",
+    "publisher": "AnthonyB",
     "displayName": "Grammar_Color",
     "description": "coloreado de tokens para lenguaje ULA",
     "version": "0.0.1",
