@@ -3,9 +3,9 @@
     "publisher": "Anthony2696",
     "displayName": "Grammar_Color",
     "description": "coloreado de tokens para lenguaje ULA",
-    "version": "0.0.1",
-    "icon": "./images/ula.png",
-    "author": "Anthony2696,EDUARDO G.",
+    "version": "0.0.2",
+    "icon": "images/ula.png",
+    "author": "ANTHONY B.,EDUARDO G.",
     "repository": {
         "type": "git",
         "url": "https://github.com/Anthony2696/grammar_colorVS"
@@ -15,11 +15,6 @@
     },
     "categories": [
         "Programming Languages"
-    ],
-    "keywords": [
-        "ula",
-        "children",
-        "languages"
     ],
     "contributes": {
         "themes":[

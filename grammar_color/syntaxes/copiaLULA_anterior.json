@@ -1,32 +1,69 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Lenguage ULA",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
+	"scopeName": "source.ula",
+	"patterns": [{ "include": "#expression" }],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.LULA",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.LULA",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.LULA",
-					"match": "\\\\."
-				}
-			]
-		}
+	  "expression": {
+		"patterns": [
+			{ "include": "#keywords"},
+			{ "include": "#constants" },
+			{ "include": "#types" },
+			{ "include": "#look_read" },
+			{ "include": "#identificador" },
+			{ "include": "#Operators"},
+			{ "include": "#Digit" },
+			{ "include": "#comentario"},
+			{ "include": "#paren-expression"},
+			{ "include": "#other"}
+		]
+	  },
+	  "other":{
+		  "match": "[?!\"]([a-zA-Z_0-9]*[\\s]*[:punct:]*)*[?=\"]",
+		  "name": "text"
+	  },
+	  "comentario": {
+		  "match": "[\\#]([[:punct:]]*[[:alnum:]]*[[:space:]]*)*.",
+		  "name": "invalid"
+	  },
+
+	  "constants": {
+		"match": "falso|verdadero|nulo|infinito|FALSO|VERDADERO|NULO|INFINITO",
+		"name": "keyword.letter"
+	  },
+	  "look_read": {
+		"match": "mostrar|leer",
+		"name": "color"
+	  },
+	  "keywords": {
+		"match": "(para|mientras|segun_sea|salir|sino|si|caso|defecto|diferir|operador|externa|def|const|super|self|retorna|intenta|atrapa|tirar|finalmente|yield|fallthrough|continuar|del|from|import|with|pasar|vacio|tipo|override|abstract|assert)(?![a-zA-Z_])",
+		"name": "key"
+	  },
+	  "identificador" :{
+		 "match": "[a-zA-Z_][a-zA-Z_0-9]*",
+		 "name" : "variable"
+	  },
+	  "Digit": {
+		"match" : "[0-9]+",
+		"name" : "constant.numeric"
+	  },
+	  "Operators": {
+		"match": "([?![a-zA-Z_]]?)(\\<|\\>|\\+|\\-|\\*|/|=|!=|%|\\^|como|xor|~|\\<|\\>|y_es|o_es|no|es|en|\\,|\\:|\\.|\\..|\\...|->|as|\\+=|\\-=|\\*=|=|%=|^=|\\++|\\--|==|!|<=|>=|@)([?=[a-zA-Z_]]?)",
+		"name" : "comment"
 	},
-	"scopeName": "source.lula"
-}
+	 "types": {
+		"match": "(any|entero|entero8|entero16|entero32|entero64|entero128|sin_signo|sin_signo8|sin_signo16|sin_signo32|sin_signo64|sin_signo128|doble|flotante|complejo|cadena|booleano|lista|tupla|conjunto|dict|enum|fun|estructura|clase)",
+		"name" : "entity.name.tag"
+	 },
+	  "paren-expression": {
+		"begin": "\\(|\\{|\\[",
+		"end": "\\)|\\}|\\]",
+		"beginCaptures": {
+		  "0": { "name": "punctuation.paren.open" }
+		},
+		"endCaptures": {
+		  "0": { "name": "punctuation.paren.close" }
+		},
+		"name": "expression.group",
+		"patterns": [{ "include": "#expression" }]
+	  }
+	}
+  }
