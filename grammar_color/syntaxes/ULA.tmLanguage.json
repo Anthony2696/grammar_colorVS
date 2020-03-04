@@ -4,16 +4,22 @@
 	"repository": {
 	  "expression": {
 		"patterns": [
+			{ "include": "#text"},
 			{ "include": "#keywords"},
 			{ "include": "#constants" },
-			{ "include": "#Operators"},
 			{ "include": "#types" },
 			{ "include": "#look_read" },
+			{ "include": "#Operators"},
 			{ "include": "#identificador" },
 			{ "include": "#Digit" },
 			{ "include": "#comentario"},
 			{ "include": "#paren-expression"}
+			
 		]
+	  },
+	  "text":{
+		  "match": "[?!\"]([a-zA-Z_0-9]?[\\s]?[\\!|\\|\\$|\\%|\\&|\\'|\\*|\\+|\\,|\/|\\-|\\.|\\:|\\;|\\<|\\=|\\>|\\?|\\@|\\^|\\_|\\`|\\~]?)+[?=\"]",
+		  "name": "text"
 	  },
 	  "comentario": {
 		  "match": "[\\#]([[:punct:]]*[[:alnum:]]*[[:space:]]*)*.",
@@ -29,7 +35,7 @@
 		"name": "color"
 	  },
 	  "keywords": {
-		"match": "(para|mientras|segun_sea|salir|sino|si|caso|defecto|defer|operator|extern|def|const|super|self|retorna|intenta|atrapa|tirar|finalmente|yield|fallthrough|continuar|del|from|import|with|pass|void|type|override|abstract|assert)(?![a-zA-Z_])",
+		"match": "(para|mientras|segun_sea|salir|sino|si|caso|defecto|diferir|operador|externa|def|const|super|self|retorna|intenta|atrapa|tirar|finalmente|yield|fallthrough|continuar|del|from|import|with|pasar|vacio|tipo|override|abstract|assert)(?![a-zA-Z_])",
 		"name": "key"
 	  },
 	  "identificador" :{
@@ -41,11 +47,11 @@
 		"name" : "constant.numeric"
 	  },
 	  "Operators": {
-		"match": "(\\<|\\>|\\+|\\-|\\*|/|=|!=|%|\\^|<<<|>>>|xor|~|<<|>>|y_es|o_es|no|es|en|\\,|\\:|\\.|\\..|\\...|->|as|\\+=|\\-=|\\*=|=|%=|^=|\\++|\\--|==|!|<=|>=|@)(?![a-zA-Z_])",
+		"match": "\\!|\\|\\$|\\%|\\&|\\'|\\*|\\+|\\,|\/|\\-|\\.|\\:|\\;|\\<|\\=|\\>|\\?|\\@|\\^|\\_|\\`|\\~|xor|y_es|o_es|no|en|es|como",
 		"name" : "comment"
 	},
 	 "types": {
-		"match": "(any|entero|entero8|entero16|entero32|entero64|entero128|sin_signo|sin_signo8|sin_signo16|sin_signo32|sin_signo64|sin_signo128|doble|flotante|complejo|cadena|booleano|lista|tupla|conjunto|dict|enum|fun|estructura|clase)(?![0-9])",
+		"match": "(entero[0-9]*|sin_signo[0-9]*|cualquiera|doble|flotante|complejo|cadena|booleano|lista|tupla|conjunto|dict|enum|func|estructura|clase)",
 		"name" : "entity.name.tag"
 	 },
 	  "paren-expression": {
