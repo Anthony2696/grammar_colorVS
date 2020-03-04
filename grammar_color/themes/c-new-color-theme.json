@@ -2,7 +2,7 @@
 	"name": "c-new",
 	"type": "dark",
 	"colors": {
-		"editor.background": "#263238",
+		"editor.background": "#242424",
 		"editor.foreground": "#eeffff",
 		"activityBarBadge.background": "#007acc",
 		"sideBarTitle.foreground": "#bbbbbb"
@@ -461,10 +461,11 @@
 		{
 			"name": "Markdown - Markup Raw Inline Punctuation",
 			"scope": [
+				"text",
 				"text.html.markdown markup.inline.raw.markdown punctuation.definition.raw.markdown"
 			],
 			"settings": {
-				"foreground": "#65737E"
+				"foreground": "#8efff9"
 			}
 		},
 		{
