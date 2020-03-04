@@ -1,0 +1,33 @@
+clase DemoClass
+    x: entero
+    def new()
+        self.x = 5
+
+    def test()
+        mostrar("Test")
+
+clase DemoClass2: DemoClass
+    y: entero
+    def new()
+        self.y = 4
+        self.x = 5
+
+    def test2()
+        mostrar("Test2")
+
+clase DemoClass3: DemoClass2
+    z: entero
+    def new()
+        self.z = 6
+        self.y = 4
+        self.x = 5
+
+    def test3()
+        mostrar("Test3")
+
+y = DemoClass3()
+y.test()
+mostrar(y.x)
+mostrar(y.y)
+mostrar(y.z)
+y.test3()
