@@ -10,10 +10,41 @@
     "Condicional si": {
         "prefix": "si",
         "body": [
-            "si (${3:elemento} ${2:criterio} ${1:elemento}){"," \t$0","}"
+            "si (${1:condicion}){"," \t$0","}"
         ],
         "description": "Condicional si - abc-lang"
+    },
+
+    "Condicional sino": {
+        "prefix": "si-no",
+        "body": [
+            "si (${1:condicion}){"," \t$0 ","} sino (${3:condicion}) {"," \t$2 ","}"
+        ],
+        "description":"Condicional sino-abc-lang"
+    },
+
+    "Condicional segun": {
+        "prefix": "segun",
+        "body": [
+            "segun_sea ${1:principal}","\tcaso ${2:opcion1}","\t\t$0","\tcaso ${3:opcion2} ","\t\t${4:op} " 
+        ],
+        "description":"Condicional sino-abc-lang"
+    },
+
+    "Estructura para": {
+        "prefix": "para",
+        "body":[
+            "para ${1:variable} en ${2:variable} ","\t$0"
+        ]
+    },
+    
+    "Estructura mientras": {
+        "prefix": "mientras",
+        "body":[
+            "mientras(${1:condicion}){","\t$0 ","}"
+        ]
     }
+
 }
 
     
